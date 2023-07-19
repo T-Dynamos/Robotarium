@@ -1,0 +1,4 @@
+kivy 
+pygments 
+https://github.com/kivymd/KivyMD/archive/refs/heads/master.zip
+catppuccin[pygments]

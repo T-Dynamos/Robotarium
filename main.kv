@@ -1,0 +1,65 @@
+MDScreen:
+    name:"code_view"
+    BoxLayout:
+        BoxLayout:
+            orientation:"vertical"
+            MDBoxLayout:
+                size_hint:1, None 
+                height:dp(35)
+                md_bg_color:app.theme_cls.bg_dark
+                MDFlatButton:
+                    text:"File"
+                    _radius:0.0001
+                    font_name:app.medium_font
+                MDFlatButton:
+                    text:"Edit"
+                    _radius:0.0001
+                    font_name:app.medium_font
+                MDFlatButton:
+                    text:"Devices"
+                    _radius:0.0001
+                    font_name:app.medium_font
+                Widget:
+                MDFlatButton:
+                    markup:True 
+                    font_name:app.icon_font
+                    text:"\U000F040A"
+                    font_size:"25sp"
+                    _radius:0.0001
+                    on_release:app.main_thread.submit(app.run_project)
+            BoxLayout:
+                spacing:dp(5)
+                Label:
+                    size_hint:None , 1
+                    id: line_box
+                    markup:True
+                    text:""
+                    halign:"right"
+                    font_size:"12sp"
+                    line_height:0.99
+                    width:dp(5)
+                    padding:[dp(10),0,0,0]
+                MDBoxLayout:
+                    size_hint:None,1
+                    width:dp(1)
+                    md_bg_color:app.theme_cls.opposite_bg_light[:-1] + [0.5]
+                MDRelativeLayout:
+                    id:code_box
+                    MDBoxLayout:
+                        size_hint:1,None 
+                        height:dp(20)
+                        id:highlight
+                        opacity:0
+                        md_bg_color:app.theme_cls.bg_darkest[:-1] + [0]
+            MDBoxLayout:
+                md_bg_color:app.theme_cls.bg_normal 
+                size_hint:1, None 
+                height:dp(170)
+                ScrollView:
+                    BoxLayout:
+                        id:console_view
+                        size_hint_x:1
+                        size_hint_y: None
+                        height: self.minimum_height
+                        padding:[dp(20), 0]
+                        orientation:"vertical"
